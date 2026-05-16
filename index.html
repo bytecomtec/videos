@@ -11,7 +11,8 @@
     <meta property="og:description" content="Aprende paso a paso cómo dar de alta, configurar y respaldar tus equipos de videovigilancia de manera segura." />
     
     <meta property="og:url" content="https://bytecomtec.github.io/videos/" />
-    <meta property="og:image" content="https://bytecomtec.github.io/videos/byte.png" />
+    
+    <meta property="og:image" content="https://bytecomtec.github.io/videos/byte.png?v=2" />
     
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
@@ -20,7 +21,7 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; text-align: center; }
         .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .btn-whatsapp { display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+        .btn-whatsapp { display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; cursor: pointer; }
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; margin: 20px 0; border-radius: 5px; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
     </style>
@@ -39,12 +40,18 @@
 
         <p>¿Necesitas compartir esta solución con alguien más?</p>
         
-        <a class="btn-whatsapp" 
-           href="https://wa.me/?text=https://bytecomtec.github.io/videos/%0A%0A%F0%9F%9B%A0%EF%B8%8F%20*Soporte%20Bytecomtec*%0A%0A%F0%9F%93%B9%20Aqu%C3%AD%20tienes%20el%20video%20tutorial%20para%20configurar%20tu%20DVR/NVR:%0A%F0%9F%94%97%20https://bytecomtec.github.io/videos" 
-           target="_blank">
+        <a class="btn-whatsapp" id="btn-compartir-wa" target="_blank">
             Compartir por WhatsApp
         </a>
     </div>
 
-</body>
-</html>
+    <script>
+        // 1. Definición de las variables (Puedes usar acentos y emojis aquí sin riesgo)
+        const urlBranding = "https://bytecomtec.github.io/videos/";
+        const urlVideoYoutube = "https://bytecomtec.github.io/videos"; // <--- Cambia por tu enlace real de YouTube
+        
+        const encabezado = "🛠️ *Soporte Bytecomtec*";
+        const mensajeCuerpo = "📹 Aquí tienes el video tutorial solicitado para configurar tu DVR/NVR:";
+
+        // 2. Construcción del mensaje estructurado (Logo primero para el Branding)
+        const
