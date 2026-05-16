@@ -3,61 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Soporte Técnico - Bytecomtec</title>
-
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Configuración de DVR y NVR | Soporte Bytecomtec" />
-    <meta property="og:description" content="Aprende paso a paso cómo dar de alta, configurar y respaldar tus equipos de videovigilancia de manera segura." />
-    
-    <meta property="og:url" content="https://bytecomtec.github.io/videos/" />
-    <meta property="og:image" content="https://bytecomtec.github.io/videos/byte.png?v=6" />
-    
-    <meta property="og:image:width" content="512" />
-    <meta property="og:image:height" content="512" />
-    <meta property="og:image:type" content="image/png" />
-
+    <title>Portal de Videos Técnicos - Bytecomtec</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; text-align: center; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .btn-whatsapp { display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; cursor: pointer; }
-        .video-container { width: 100%; margin: 20px 0; border-radius: 5px; overflow: hidden; background-color: #000; }
-        video { width: 100%; height: auto; display: block; border-radius: 5px; }
+        /* Variables de diseño para fácil personalización */
+        :root {
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-secondary: #666666;
+            --primary-color: #007bff;
+            --primary-hover: #0056b3;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+            padding: 15px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            color: #111;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contenedor principal de la lista */
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* Espacio entre cada elemento */
+            max-width: 600px; /* Centrado y control de ancho en pantallas más grandes */
+            margin: 0 auto;
+        }
+
+        /* Fila de cada video */
+        .video-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px;
+            display: flex;
+            justify-content: space-between; /* Izquierda y Derecha */
+            align-items: center; /* Centrado vertical */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* Lado izquierdo: Título del video */
+        .video-info {
+            flex: 1;
+            padding-right: 15px; /* Evita que el texto pegue con el botón */
+        }
+
+        .video-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-color);
+            word-break: break-word; /* Rompe líneas si el título es muy largo */
+        }
+
+        /* Lado derecho: Botón de acceso al repositorio */
+        .video-action {
+            flex-shrink: 0; /* Evita que el botón se deforme o se encoja */
+        }
+
+        .repo-btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Efecto feedback al presionar en móvil */
+        .repo-btn:active {
+            background-color: var(--primary-hover);
+        }
+
+        /* Ajuste responsivo menor por si se visualiza en pantallas de escritorio */
+        @media (min-width: 768px) {
+            body {
+                padding: 40px 20px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .repo-btn:hover {
+                background-color: var(--primary-hover);
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="byte.png" alt="Bytecomtec" style="max-width: 150px; height: auto;">
+    <header>
+        <h1>Repositorio de Videos Técnicos</h1>
+        <p>Bytecomtec Portal</p>
+    </header>
+
+    <main class="video-list">
         
-        <h2>Configuración de DVR y NVR</h2>
-        <p>A continuación se muestra el video tutorial para la inicialización y configuración de red de tus grabadores.</p>
-        
-        <div class="video-container">
-            <video controls poster="byte.png" preload="metadata">
-                <source src="asistente_NVR_DVR.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-            </video>
+        <!-- Elemento de Video 1 -->
+        <div class="video-item">
+            <div class="video-info">
+                <span class="video-title">Configuración de DVR Hikvision y cableado estructurado</span>
+            </div>
+            <div class="video-action">
+                <a href="https://github.com/tu-usuario/tu-repo-video1" target="_blank" class="repo-btn">Ver Repo</a>
+            </div>
         </div>
 
-        <p>¿Necesitas compartir esta solución con alguien más?</p>
-        
-        <a class="btn-whatsapp" id="btn-share-wa" target="_blank">
-            Compartir por WhatsApp
-        </a>
-    </div>
+        <!-- Elemento de Video 2 -->
+        <div class="video-item">
+            <div class="video-info">
+                <span class="video-title">Integración de sistemas de seguridad y CRM Dolibarr</span>
+            </div>
+            <div class="video-action">
+                <a href="https://github.com/tu-usuario/tu-repo-video2" target="_blank" class="repo-btn">Ver Repo</a>
+            </div>
+        </div>
 
-    <script>
-        // Definimos las cadenas de texto limpias. El navegador se encargará de codificarlas sin errores.
-        const urlFinal = "https://bytecomtec.github.io/videos/";
-        const mensajeBranding = "🛠️ *Soporte Bytecomtec*\n\n📹 Aqui tienes el video tutorial para configurar tu DVR o NVR.";
-        
-        // Unimos la URL (una sola vez) y el texto informativo
-        const cadenaCompleta = urlFinal + "\n\n" + mensajeBranding;
-        
-        // Inyectamos el enlace generado de forma segura en el botón
-        document.getElementById("btn-share-wa").href = "https://wa.me/?text=" + encodeURIComponent(cadenaCompleta);
-    </script>
+        <!-- Elemento de Video 3 -->
+        <div class="video-item">
+            <div class="video-info">
+                <span class="video-title">Topologías de red para proyectos de infraestructura escolar</span>
+            </div>
+            <div class="video-action">
+                <a href="https://github.com/tu-usuario/tu-repo-video3" target="_blank" class="repo-btn">Ver Repo</a>
+            </div>
+        </div>
+
+        <!-- Puedes clonar el bloque de arriba para añadir más videos -->
+
+    </main>
 
 </body>
 </html>
