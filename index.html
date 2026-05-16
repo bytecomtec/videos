@@ -23,7 +23,7 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; text-align: center; }
         .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .btn-whatsapp { display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+        .btn-whatsapp { display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; cursor: pointer; }
         .video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; margin: 20px 0; border-radius: 5px; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
     </style>
@@ -37,9 +37,35 @@
         <p>A continuación se muestra el video tutorial para la inicialización y configuración de red de tus grabadores.</p>
         
         <div class="video-box">
-            <iframe src="https://www.youtube.com/embed/EJEMPLO_VIDEO" allowfullscreen></iframe>
+            <iframe id="tutorial-video" src="https://www.youtube.com/embed/EJEMPLO_VIDEO" allowfullscreen></iframe>
         </div>
 
         <p>¿Necesitas compartir esta solución con alguien más?</p>
         
-        <a class="btn-whatsapp"
+        <a class="btn-whatsapp" id="whatsapp-share-btn" href="#" target="_blank">
+            Compartir por WhatsApp
+        </a>
+    </div>
+
+    <script>
+        // 1. CONFIGURA AQUÍ LAS LIGAS REALES PARA ESTE PROYECTO:
+        const urlPaginaBranding = "https://bytecomtec.github.io/videos/"; 
+        const urlVideoYoutube = "https://youtu.be/EJEMPLO_VIDEO"; // Modifica por la URL real de tu video compartido
+
+        // 2. TEXTO DEL MENSAJE (Ya incluye salto de línea, emojis y formato negrita)
+        const tituloSoporte = "🛠️ *Soporte Bytecomtec*";
+        const cuerpoMensaje = "📹 Aquí tienes el video tutorial solicitado para la configuración de tu DVR/NVR:";
+
+        // 3. ARMADO AUTOMÁTICO DEL ENLACE (Evita el problema de caracteres extraños como acentos o ñ)
+        // Colocamos la página de branding primero para forzar la carga del logo en WhatsApp
+        const mensajeCompleto = `${urlPaginaBranding}\n\n${tituloSoporte}\n${cuerpoMensaje}\n🔗 ${urlVideoYoutube}`;
+        
+        // Codificamos de manera segura todo el texto para la API de WhatsApp
+        const urlWhatsApp = "https://wa.me/?text=" + encodeURIComponent(mensajeCompleto);
+
+        // 4. ASIGNACIÓN AL BOTÓN HTML
+        document.getElementById("whatsapp-share-btn").href = urlWhatsApp;
+    </script>
+
+</body>
+</html>
