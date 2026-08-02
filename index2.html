@@ -4,65 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repositorio de Videos - Bytecomtec</title>
-    <!-- Tailwind CSS para un diseño moderno y responsivo móvil automático -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
     <!-- Header Institucional -->
-    <header class="bg-slate-900 text-white py-6 px-4 shadow-md text-center">
-        <h1 class="text-2xl font-bold tracking-wide">Bytecomtec Portal</h1>
-        <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Repositorio de Videos Técnicos y Comerciales</p>
+    <header class="bg-slate-900 text-white py-5 px-4 shadow-md text-center">
+        <h1 class="text-xl font-bold tracking-wide">Bytecomtec Portal</h1>
+        <p class="text-[10px] text-slate-400 mt-0.5 uppercase tracking-wider">Repositorio de Videos Técnicos</p>
     </header>
 
     <!-- Contenedor Principal -->
-    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-6">
+    <main class="flex-grow max-w-4xl w-full mx-auto px-3 py-5">
         
         <!-- Barra de Búsqueda -->
-        <div class="mb-6">
-            <input type="text" id="searchInput" placeholder="Buscar video por título o tecnología..." 
-                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 shadow-sm text-sm bg-white">
+        <div class="mb-5">
+            <input type="text" id="searchInput" placeholder="Buscar video..." 
+                class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 shadow-sm text-xs sm:text-sm bg-white">
         </div>
 
         <!-- Filtros por Categoría (Deslizables en Móvil) -->
-        <div class="flex overflow-x-auto space-x-2 pb-4 mb-6 no-scrollbar">
-            <button onclick="filterCategory('all')" class="category-btn px-4 py-2 bg-blue-600 text-white rounded-full text-xs font-semibold whitespace-nowrap shadow-sm transition">Todos (150)</button>
-            <button onclick="filterCategory('cctv')" class="category-btn px-4 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm hover:bg-slate-100 transition">CCTV y Seguridad</button>
-            <button onclick="filterCategory('redes')" class="category-btn px-4 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm hover:bg-slate-100 transition">Redes y Enlaces</button>
-            <button onclick="filterCategory('telefonia')" class="category-btn px-4 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm hover:bg-slate-100 transition">Telefonía IP</button>
-            <button onclick="filterCategory('energia')" class="category-btn px-4 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm hover:bg-slate-100 transition">Energía y UPS</button>
-            <button onclick="filterCategory('comercial')" class="category-btn px-4 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm hover:bg-slate-100 transition">Comercial</button>
+        <div class="flex overflow-x-auto space-x-2 pb-3 mb-5 no-scrollbar">
+            <button onclick="filterCategory('all', event)" class="category-btn px-3.5 py-1.5 bg-blue-600 text-white rounded-full text-xs font-semibold whitespace-nowrap shadow-sm transition">Todos</button>
+            <button onclick="filterCategory('cctv', event)" class="category-btn px-3.5 py-1.5 bg-white text-slate-600 border border-slate-200 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm hover:bg-slate-100 transition">CCTV y Seguridad</button>
+            <button onclick="filterCategory('redes', event)" class="category-btn px-3.5 py-1.5 bg-white text-slate-600 border border-slate-200 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm hover:bg-slate-100 transition">Redes y Enlaces</button>
+            <button onclick="filterCategory('telefonia', event)" class="category-btn px-3.5 py-1.5 bg-white text-slate-600 border border-slate-200 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm hover:bg-slate-100 transition">Telefonía IP</button>
+            <button onclick="filterCategory('energia', event)" class="category-btn px-3.5 py-1.5 bg-white text-slate-600 border border-slate-200 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm hover:bg-slate-100 transition">Energía y UPS</button>
         </div>
 
-        <!-- Cuadrícula de Videos (Grid adaptable a celulares) -->
-        <div id="videoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Cuadrícula a 2 Columnas -->
+        <div id="videoGrid" class="grid grid-cols-2 gap-3 sm:gap-4">
             
-            <!-- Cuadrícula optimizada a 2 columnas en celular y hasta 3 o 4 en PC -->
-            <div class="grid grid-cols-2 gap-3 sm:gap-4">
-    
-    <!-- Tarjeta Interactiva Limpia -->
-    <a href="URL_DEL_VIDEO" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition flex items-center justify-center text-center min-h-[80px]">
-        <span class="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
-            Configuración NVR/DVR
-        </span>
-    </a>
+            <!-- Videos de CCTV -->
+            <a href="URL_VIDEO_1" target="_blank" class="video-card bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition flex items-center justify-center text-center min-h-[75px]" data-category="cctv" data-title="configuracion nvr dvr">
+                <span class="text-xs font-semibold text-slate-800 leading-snug">Configuración NVR/DVR</span>
+            </a>
 
-    <!-- Tarjeta Interactiva Limpia 2 -->
-    <a href="URL_DEL_VIDEO" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition flex items-center justify-center text-center min-h-[80px]">
-        <span class="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
-            Recuperación de contraseña NVR/DVR
-        </span>
-    </a>
+            <a href="URL_VIDEO_2" target="_blank" class="video-card bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition flex items-center justify-center text-center min-h-[75px]" data-category="cctv" data-title="recuperacion de contrasena nvr dvr">
+                <span class="text-xs font-semibold text-slate-800 leading-snug">Recuperación de contraseña NVR/DVR</span>
+            </a>
 
-</div>
+            <a href="URL_VIDEO_3" target="_blank" class="video-card bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition flex items-center justify-center text-center min-h-[75px]" data-category="cctv" data-title="compartir dispositivos hik connect">
+                <span class="text-xs font-semibold text-slate-800 leading-snug">Compartir dispositivos desde Hik-connect</span>
+            </a>
+
+            <!-- Videos de Redes (Ejemplo de otra categoría) -->
+            <a href="URL_VIDEO_4" target="_blank" class="video-card bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition flex items-center justify-center text-center min-h-[75px]" data-category="redes" data-title="configuracion enlaces ubiquiti">
+                <span class="text-xs font-semibold text-slate-800 leading-snug">Configuración Enlaces Ubiquiti</span>
+            </a>
+
+            <a href="URL_VIDEO_5" target="_blank" class="video-card bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition flex items-center justify-center text-center min-h-[75px]" data-category="redes" data-title="balanceo de carga mikrotik">
+                <span class="text-xs font-semibold text-slate-800 leading-snug">Balanceo de Carga MikroTik</span>
+            </a>
+
+            <!-- Videos de Telefonía (Ejemplo) -->
+            <a href="URL_VIDEO_6" target="_blank" class="video-card bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition flex items-center justify-center text-center min-h-[75px]" data-category="telefonia" data-title="configuracion conmutador issabel">
+                <span class="text-xs font-semibold text-slate-800 leading-snug">Configuración Conmutador Issabel</span>
+            </a>
+
+        </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center py-4 text-xs text-slate-400 border-t border-slate-200 mt-auto">
-        Bytecomtec &copy; 2026 - Todos los derechos reservados
-    </footer>
-
-    <!-- Script de Filtrado y Búsqueda Instantánea -->
+    <!-- Script corregido para filtrar de manera independiente -->
     <script>
         const searchInput = document.getElementById('searchInput');
         const videoCards = document.querySelectorAll('.video-card');
@@ -70,27 +73,25 @@
 
         let currentCategory = 'all';
 
-        // Búsqueda por texto
-        searchInput.addEventListener('input', (e) => {
-            filterVideos();
+        searchInput.addEventListener('input', () => {
+            applyFilters();
         });
 
-        // Filtrado por categoría
-        function filterCategory(category) {
+        function filterCategory(category, event) {
             currentCategory = category;
             
-            // Estilos de botones activos
+            // Cambiar estilos visuales de los botones de categoría
             categoryButtons.forEach(btn => {
                 btn.classList.remove('bg-blue-600', 'text-white');
                 btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
             });
-            event.target.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
-            event.target.classList.add('bg-blue-600', 'text-white');
+            event.currentTarget.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            event.currentTarget.classList.add('bg-blue-600', 'text-white');
 
-            filterVideos();
+            applyFilters();
         }
 
-        function filterVideos() {
+        function applyFilters() {
             const query = searchInput.value.toLowerCase().trim();
 
             videoCards.forEach(card => {
@@ -100,6 +101,7 @@
                 const matchesCategory = (currentCategory === 'all' || category === currentCategory);
                 const matchesSearch = title.includes(query);
 
+                // Si cumple con la categoría y la búsqueda, se muestra como flex (en dos columnas), de lo contrario se oculta
                 if (matchesCategory && matchesSearch) {
                     card.style.display = 'flex';
                 } else {
